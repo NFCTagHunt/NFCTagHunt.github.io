@@ -27,6 +27,14 @@ if(getLocalStorageItem("ls_completed") || getSessionStorageItem("ss_completed"))
 	localStorage.removeItem("ls_completed");
 	setupSessionStorageItem("ss_completed","ss_completed");
 	document.getElementById("WelcomeMessage").innerHTML = "Well Done on completing the Scavenger Hunt! <br /> Retreive a prize at the reception and please fill out a questionaire. Thanks for playing!";	
+
+	var congratsImage = document.createElement("img");
+	var body = document.getElementById("body");
+	image.src = "images/CongratulationsImage.gif";
+	congratsImage.alt = "Congratulations Image";
+	congratsImage.style = "width:512;height:256;";
+	
+	imageParent.appendChild(congratsImage);
 }
 else
 {
