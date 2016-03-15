@@ -34,7 +34,7 @@ if(getLocalStorageItem("ls_completed") || getSessionStorageItem("ss_completed"))
 	congratsImage.alt = "Congratulations Image";
 	congratsImage.style = "width:512;height:256;";
 	
-	imageParent.appendChild(congratsImage);
+	body.appendChild(congratsImage);
 }
 else
 {
