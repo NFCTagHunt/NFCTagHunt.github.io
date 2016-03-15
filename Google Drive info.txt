@@ -1,0 +1,6 @@
+Google drive allows for uploading html's css, .js and hosting as a webpage.
+Service is ending in August this year (will inform NVA).
+
+Scavenger hunt values to collect are stored in a google sheets spreadsheet.
+
+https://github.com/mikeymckay/google-spreadsheet-javascript
