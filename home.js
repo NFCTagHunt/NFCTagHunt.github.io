@@ -58,7 +58,7 @@ function allScanned()
 		document.getElementById("btn_Finish").onclick = function() 
 		{
 			setupLocalStorageItem("ls_completed","ls_completed");
-        	location.href='https://googledrive.com/host/0BxgUISNOPlFDMF9BMU9OTjl6b2M/complete.html';
+        	location.href='http://nfctaghunt.github.io/complete.html';
     	} 
     	document.getElementById("btn_Finish").style.marginLeft = "46%";
     	document.getElementById("btn_Finish").style.marginBottom = "50px";
