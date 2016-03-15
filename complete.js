@@ -30,7 +30,8 @@ if(getLocalStorageItem("ls_completed") || getSessionStorageItem("ss_completed"))
 
 	var img = document.createElement("img");
 	img.src = "images/CongratulationsImage.gif";
-	var src = document.getElementById("pic").innerHTML;
+	img.style = "width:512px;height:256px;"
+	var src = document.getElementById("pic");
 	src.appendChild(img);
 }
 else
