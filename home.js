@@ -8,7 +8,7 @@ allScanned();
 	
 
 for (i = 1; i <= totalTags; i++) { 
-	//checkTag(i);
+	checkTag(i);
 }
 
 function setupLocalStorageItem(key,value)
@@ -40,14 +40,9 @@ function checkLastDateCompleted()
 	{
 		var now = new Date();
 		var fullDate = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate();
-		if(getLocalStorageItem("lastDateCompleted").value == fullDate)
+		if(getLocalStorageItem.getItem("lastDateCompleted") == fullDate)
 		{
 				window.location.href = "gameover.html";
-		}
-		else
-		{
-			document.getElementById("tagID1").innerHTML = getLocalStorageItem("lastDateCompleted").value;
-			document.getElementById("tagID2").innerHTML = fullDate;
 		}
 	}
 } 
