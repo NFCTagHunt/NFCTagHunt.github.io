@@ -46,7 +46,6 @@ function checkLastDateCompleted()
 		}
 	}
 } 
-}
 function allScanned()
 {
 	var allScannedFlag = "true";
