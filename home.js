@@ -1,7 +1,9 @@
 var titleTextColour = "black";
 
 var totalTags = 6;
-
+//All Local storage values used in the program are: 
+//uniqueID; lastDateCompleted; lastDateAccessed; tagID1;tagID2;tagID3;tagID4;tagID5;tagID6
+checkLastDatePlayed();
 checkLastDateCompleted();
 checkForUniqueID();
 allScanned();
@@ -33,7 +35,7 @@ function checkForUniqueID()
 		setupLocalStorageItem("uniqueID",uniqueID);
 	}
 } 
-//If the user has completed the event today, they have to wait till tomorrow to redo
+//Check if the user has already completed the game today from a local storage variable containing date they last completed it
 function checkLastDateCompleted()
 {
 	if(getLocalStorageItem("lastDateCompleted"))
@@ -46,6 +48,32 @@ function checkLastDateCompleted()
 		}
 	}
 } 
+//Checks the last date the user accessed the website, and if its not todays date, resets the results so they have to start again
+function checkLastDatePlayed()
+{
+	var now = new Date();
+	var todaysFullDate = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate();
+	//checks if there is a value to begin with, as first time users wont have it stored.
+	if(getLocalStorageItem("lastDateAccessed"))
+	{
+		//removes all tagID localstorage variables
+		if(localStorage.getItem("lastDateAccessed") != todaysFullDate)
+		{
+			for (i = 1; i <= totalTags; i++) 
+			{ 
+				//makes sure value stored before attempting to remove
+				if(getLocalStorageItem("tagID" + i))
+				{
+					localStorage.removeItem("tagID" + i);
+				}
+			}
+		}
+	}
+	//sets the storage value to todays date after doing the check, to make sure its up to date.
+	setupLocalStorageItem("lastDateAccessed",todaysFullDate)
+} 
+
+//checks to see if all the tags have localstorage values (to show they are scanned), and shows the game complete button
 function allScanned()
 {
 	var allScannedFlag = "true";
@@ -63,7 +91,7 @@ function allScanned()
     	document.getElementById("WelcomeMessage").innerHTML = "You found all the tags! Click below";
     	setInterval(function() { flashingText("WelcomeMessage",'yellow','gold') }, 1000);
 
-
+    	//setting up the button to go to the "completed" page
     	var buttonnode= document.createElement('input');
 		buttonnode.setAttribute('type','button');
 		buttonnode.setAttribute('id','btn_Finish');
@@ -76,10 +104,6 @@ function allScanned()
     	} 
     	document.getElementById("btn_Finish").style.marginLeft = "46%";
     	document.getElementById("btn_Finish").style.marginBottom = "50px";
-    	//var btn_complete = document.createElement("BUTTON"); 
-		//var btn_txt_complete = document.createTextNode("Click Here to Complete!");
-		//btn.appendChild(t);
-		//document.getElementById('MainContent').appendChild(btn);      
 
 	    
 	}
