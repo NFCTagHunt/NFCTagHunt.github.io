@@ -26,6 +26,9 @@ if(getLocalStorageItem("ls_completed") || getSessionStorageItem("ss_completed"))
     }
 	localStorage.removeItem("ls_completed");
 	setupSessionStorageItem("ss_completed","ss_completed");
+	var now = new Date();
+	var fullDate = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate();
+	setupLocalStorageItem("lastDateCompleted",fullDate)
 	document.getElementById("WelcomeMessage").innerHTML = "Well Done on completing the Scavenger Hunt! <br /> Retreive a prize at the reception and please fill out a questionaire. Thanks for playing!";	
 
 	var img = document.createElement("img");
