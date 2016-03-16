@@ -2,6 +2,7 @@ var titleTextColour = "black";
 
 var totalTags = 6;
 
+checkLastDateCompleted();
 checkForUniqueID();
 allScanned();
 	
@@ -20,7 +21,7 @@ function getLocalStorageItem(key)
 }
 
 //Working with cookies
- function checkForUniqueID()
+function checkForUniqueID()
 {
 	if(getLocalStorageItem("uniqueID"))
 	{
@@ -32,6 +33,20 @@ function getLocalStorageItem(key)
 		setupLocalStorageItem("uniqueID",uniqueID);
 	}
 } 
+//If the user has completed the event today, they have to wait till tomorrow to redo
+function checkLastDateCompleted()
+{
+	if(getLocalStorageItem("lastDateCompleted"))
+	{
+		var now = new Date();
+		var fullDate = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate();
+		if(getLocalStorageItem("lastDateCompleted").value == fullDate)
+		{
+				window.location.href = "gameover.html";
+		}
+	}
+} 
+}
 function allScanned()
 {
 	var allScannedFlag = "true";
