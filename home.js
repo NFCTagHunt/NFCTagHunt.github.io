@@ -7,9 +7,9 @@ checkForUniqueID();
 allScanned();
 	
 
-	for (i = 1; i <= totalTags; i++) { 
-		checkTag(i);
-    }
+for (i = 1; i <= totalTags; i++) { 
+	//checkTag(i);
+}
 
 function setupLocalStorageItem(key,value)
 {
@@ -43,6 +43,11 @@ function checkLastDateCompleted()
 		if(getLocalStorageItem("lastDateCompleted").value == fullDate)
 		{
 				window.location.href = "gameover.html";
+		}
+		else
+		{
+			document.getElementById("tagID1").innerHTML = getLocalStorageItem("lastDateCompleted").value;
+			document.getElementById("tagID2").innerHTML = fullDate;
 		}
 	}
 } 
