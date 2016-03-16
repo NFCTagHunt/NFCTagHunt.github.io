@@ -40,7 +40,7 @@ function checkLastDateCompleted()
 	{
 		var now = new Date();
 		var fullDate = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate();
-		if(getLocalStorageItem.getItem("lastDateCompleted") == fullDate)
+		if(localStorage.getItem("lastDateCompleted") == fullDate)
 		{
 				window.location.href = "gameover.html";
 		}
